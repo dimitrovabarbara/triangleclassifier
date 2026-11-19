@@ -11,6 +11,14 @@ tasks.named<JavaExec>("run") {
     standardInput = System.`in`
 }
 
+tasks.jar {
+    manifest {
+        attributes(
+            "Main-Class" to application.mainClass.get()
+        )
+    }
+}
+
 group = "org.bms"
 version = "1.0-SNAPSHOT"
 
