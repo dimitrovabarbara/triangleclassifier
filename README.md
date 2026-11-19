@@ -30,5 +30,6 @@ Enter three side lengths separated by commas or spaces. Type `end` to exit.
 
 ## Design
 
-The application uses separate components for input parsing, classification, and triangle-type handlers. 
-Dependencies are injected through constructors to keep the classification logic modular and testable.
+I was debating between handlers as it is now, and just doing an if statement in the TriangleClassifier.
+Probably now it is overengineered, but I image a use case where we have to calculate the area's of the triangles 
+or introduce more types, such as right-angled, ocute, etc. 
