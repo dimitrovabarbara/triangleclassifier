@@ -8,6 +8,7 @@ import org.bms.triangle.handler.*;
 import org.bms.triangle.service.TriangleClassifier;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -20,8 +21,12 @@ public class Main {
         );
 
         TriangleClassifier classifier = new TriangleClassifier(handlers);
-        TriangleApplication application = new TriangleApplication(classifier);
 
-        application.run();
+        try (Scanner scanner = new Scanner(System.in)) {
+            TriangleApplication application =
+                    new TriangleApplication(classifier, scanner, System.out);
+
+            application.run();
+        }
     }
 }

@@ -4,37 +4,43 @@ import org.bms.triangle.TriangleType;
 import org.bms.triangle.input.TriangleInputParser;
 import org.bms.triangle.service.TriangleClassifier;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class TriangleApplication {
 
     private final TriangleClassifier classifier;
+    private final Scanner scanner;
+    private final PrintStream output;
 
-    public TriangleApplication(TriangleClassifier classifier) {
+    public TriangleApplication(
+            TriangleClassifier classifier,
+            Scanner scanner,
+            PrintStream output
+    ) {
         this.classifier = classifier;
+        this.scanner = scanner;
+        this.output = output;
     }
 
     public void run() {
         printWelcomeMessage();
 
-        try (Scanner scanner = new Scanner(System.in)) {
-
-            while (true) {
-                print("Enter sides: ");
-                if (!scanner.hasNextLine()) {
-                    break;
-                }
-
-                String input = scanner.nextLine();
-
-                if (TriangleInputParser.shouldExit(input)) {
-                    print("Goodbye!");
-                    break;
-                }
-
-                String triangleTypeResult = classify(input);
-                print(triangleTypeResult + "\n");
+        while (true) {
+            print("Enter sides: ");
+            if (!scanner.hasNextLine()) {
+                break;
             }
+
+            String input = scanner.nextLine();
+
+            if (TriangleInputParser.shouldExit(input)) {
+                print("Goodbye!");
+                break;
+            }
+
+            String triangleTypeResult = classify(input);
+            print(triangleTypeResult + "\n");
         }
     }
 
@@ -60,6 +66,6 @@ public class TriangleApplication {
     }
 
     private void print(String message) {
-        System.out.println(message);
+        output.println(message);
     }
 }
