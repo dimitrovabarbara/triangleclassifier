@@ -35,21 +35,21 @@ class TriangleApplicationTest {
     }
 
     @Test
-    void shouldClassifyEquilateralTriangle() {
+    void shouldHandleEquilateralTriangle() {
         runApplicationWithInput("5, 5, 5\nend\n");
 
         assertTrue(output.toString().contains("Triangle type: EQUILATERAL"));
     }
 
     @Test
-    void shouldClassifyIsoscelesTriangle() {
+    void shouldHandleIsoscelesTriangle() {
         runApplicationWithInput("5 5 3\nend\n");
 
         assertTrue(output.toString().contains("Triangle type: ISOSCELES"));
     }
 
     @Test
-    void shouldClassifyScaleneTriangle() {
+    void shouldHandleScaleneTriangle() {
         runApplicationWithInput("3, 4, 5\nend\n");
 
         assertTrue(output.toString().contains("Triangle type: SCALENE"));

@@ -39,12 +39,12 @@ public class TriangleApplication {
                 break;
             }
 
-            String triangleTypeResult = classify(input);
+            String triangleTypeResult = handle(input);
             print(triangleTypeResult + "\n");
         }
     }
 
-    private String classify(String input) {
+    private String handle(String input) {
         try {
             double[] sides = TriangleInputParser.parseSides(input);
 
