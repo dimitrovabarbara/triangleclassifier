@@ -6,22 +6,10 @@ import org.bms.triangle.handler.*;
 import java.util.List;
 
 public class TriangleClassifier {
-    private static final TriangleClassifier INSTANCE =
-            new TriangleClassifier();
-
-    public static TriangleClassifier getInstance() {
-        return INSTANCE;
-    }
-
     private final List<TriangleHandler> handlers;
 
-    private TriangleClassifier() {
-        this.handlers = List.of(
-                new ErrorHandler(),
-                new EquilateralHandler(),
-                new IsoscelesHandler(),
-                new ScaleneHandler()
-        );
+    public TriangleClassifier(List<TriangleHandler> handlers) {
+        this.handlers = List.copyOf(handlers);
     }
 
     public TriangleType classify(double a, double b, double c) {
