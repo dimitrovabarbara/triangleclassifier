@@ -14,11 +14,21 @@ A Java command-line application that classifies triangles based on their three s
 - Java 21
 - Gradle
 
-## Run
+## Run the Application
 
-```bash
-./gradlew run
-```
+### Using Gradle:
+
+```./gradlew run```
+
+### Using the executable JAR:
+
+Build the application:
+
+```./gradlew build```
+
+Run the generated JAR:
+
+``java -jar build/libs/triangleclassifier-<<1.0-SNAPSHOT>>.jar``
 
 Enter three side lengths separated by commas or spaces. Type `end` to exit.
 
