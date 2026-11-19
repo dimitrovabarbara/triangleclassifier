@@ -39,12 +39,11 @@ public class TriangleApplication {
                 break;
             }
 
-            String triangleTypeResult = handle(input);
-            print(triangleTypeResult + "\n");
+            handle(input);
         }
     }
 
-    private String handle(String input) {
+    private void handle(String input) {
         try {
             double[] sides = TriangleInputParser.parseSides(input);
 
@@ -52,10 +51,10 @@ public class TriangleApplication {
                     sides[0], sides[1], sides[2]
             );
 
-            return ("Triangle type: " + result);
+            print("Triangle type: " + result + "\n");
 
         } catch (IllegalArgumentException e) {
-            return ("Error: " + e.getMessage());
+            print("Error: " + e.getMessage());
         }
     }
 
