@@ -1,5 +1,14 @@
 plugins {
     id("java")
+    application
+}
+
+application {
+    mainClass = "org/bms/Main"
+}
+
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
 }
 
 group = "org.bms"
